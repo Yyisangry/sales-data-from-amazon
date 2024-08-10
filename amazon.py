@@ -193,7 +193,7 @@ def parse_listing(listing_url):
                 t = 1 + 2 * random()
                 time.sleep(t)
         # scrape only 10 products
-        if j > 10:
+        if j > 30:
             return df_sum
     #next_page_el = soup_search.select_one('a.s-pagination-next')
     #if next_page_el:
@@ -206,13 +206,13 @@ def parse_listing(listing_url):
 
 def main():
     data = []
-    search_url = "https://www.amazon.com/s?k=healthy+food+supplements&crid=TK78GUIGUSH5&sprefix=healthy+food+su%2Caps%2C415&ref=nb_sb_ss_pltr-sample-20_2_15"
+    search_url = "https://www.amazon.sg/s?k=vitamins+dietary+healthy+supplement&ref=nb_sb_noss"
     data = parse_listing(search_url)
     data = data.drop(['Review Information'], axis=1)
     #df = pd.concat([df.drop(['Review Information'], axis=1), df['Review Information'].apply(pd.Series)], axis=1)
     import os
     path = '/Users/lygt/Documents/data scientsist learning/techlent/homework/project'
-    output_file = os.path.join(path,'healthy food supplement.csv')
+    output_file = os.path.join(path,'healthy food supplement vitamin.csv')
     data.to_csv(output_file, index=False)
 
 
